@@ -117,7 +117,7 @@ module Rebay
 
     private
     def build_request_url(service, params=nil)
-      siteid = params && params.delete(:siteid) || self.class.default_site_id
+      siteid = params && params.delete(:siteid) || Rebay::Api.default_site_id
       url = "#{BASE_URL}?callname=#{service}&appid=#{Rebay::Api.app_id}&version=#{VERSION}&responseencoding=JSON&siteid=#{siteid}"
       url += build_rest_payload(params)
       return url

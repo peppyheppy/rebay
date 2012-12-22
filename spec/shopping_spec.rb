@@ -22,13 +22,13 @@ module Rebay
       end
 
       it "should default siteid" do
-        @shopper.class.default_site_id = 100
+        Rebay::Api.default_site_id = 100
         @shopper.should_receive(:get_json_response).with(/siteid=100&/)
         @shopper.get_category_info(:categoryId => '-1')
       end
 
       it "should default siteid" do
-        @shopper.class.default_site_id = 100
+        Rebay::Api.default_site_id = 100
         @shopper.should_receive(:get_json_response).with(/siteid=99&/)
         @shopper.get_category_info(:categoryId => '-1', :siteid => 99)
       end
